@@ -1,9 +1,11 @@
 import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import './LikeButton.sass'
 import HeartGrey from '../images/heart-grey.svg'
 import HeartRed from '../images/heart-red.svg'
+import toggleLike from '../actions/recipes/toggleLike'
 
-class LikeButton extends PureComponent {
+export class LikeButton extends PureComponent {
   static propTypes = {
     _id: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
@@ -21,7 +23,7 @@ class LikeButton extends PureComponent {
   }
 
   toggleLike() {
-    this.props.onChange(this.props._id, !this.props.liked)
+    this.props.onChange(this.props._id)
   }
 
   render() {
@@ -40,4 +42,4 @@ class LikeButton extends PureComponent {
   }
 }
 
-export default LikeButton
+export default connect(null, { onChange: toggleLike })(LikeButton)

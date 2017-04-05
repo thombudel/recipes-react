@@ -1,6 +1,6 @@
 import React from 'react'
 import chai, { expect } from 'chai'
-import { shallow, mount } from 'enzyme'
+import wrapper from '../../test/wrapper'
 import chaiEnzyme from 'chai-enzyme'
 import RecipeItem from './RecipeItem'
 import Pescatarian from '../images/pescatarian.svg'
@@ -10,33 +10,17 @@ import Vegetarian from '../images/vegetarian.svg'
 chai.use(chaiEnzyme)
 
 const recipe = {
+    _id: '4',
     title: 'Spanish Omelette',
     summary: 'A traditional dish from Spanish cuisine called tortilla española or tortilla de patatas. It is an omelette made with eggs and potatoes, sometimes also with onion and/or chives or garlic; fried in oil and often served cold as an appetizer.',
     vegan: false,
     vegetarian: true,
     pescatarian: false,
+    liked: false,
 }
-
-const recipe2 = {
-  title: 'Spanish Omelette',
-  summary: 'A traditional dish from Spanish cuisine called tortilla española or tortilla de patatas. It is an omelette made with eggs and potatoes, sometimes also with onion and/or chives or garlic; fried in oil and often served cold as an appetizer.',
-  vegan: true,
-  vegetarian: false,
-  pescatarian: false,
-}
-
-const recipe3 = {
-  title: 'Spanish Omelette',
-  summary: 'A traditional dish from Spanish cuisine called tortilla española or tortilla de patatas. It is an omelette made with eggs and potatoes, sometimes also with onion and/or chives or garlic; fried in oil and often served cold as an appetizer.',
-  vegan: false,
-  vegetarian: false,
-  pescatarian: true,
-}
-
-const updateRecipeSpy = chai.spy()
 
 describe('<RecipeItem />', () => {
-  const container = shallow(<RecipeItem { ...recipe } updateRecipe={updateRecipeSpy} />)
+  const container = wrapper(<RecipeItem { ...recipe } />)
 
   it('is wrapped in a article tag with class name "recipe"', () => {
     expect(container).to.have.tagName('article')

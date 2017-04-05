@@ -11,7 +11,6 @@ class RecipeItem extends PureComponent {
     vegan: PropTypes.bool.isRequired,
     vegetarian: PropTypes.bool.isRequired,
     pescatarian: PropTypes.bool.isRequired,
-    updateRecipe: PropTypes.func.isRequired,
   }
 
   render() {
