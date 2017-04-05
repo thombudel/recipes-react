@@ -30,7 +30,7 @@ class RecipeItem extends PureComponent {
             { vegan && <li title="vegan"><img style={style} src={Vegan} /></li> }
             { !vegan && vegetarian && <li title="vegetarian"><img style={style} src={Vegetarian} /></li> }
             { pescatarian && <li title="pescatarian"><img style={style} src={Pescatarian} /></li> }
-            <LikeButton liked={liked} _id={_id} onChange={this.props.updateRecipe.bind(this)} />
+            <LikeButton liked={liked} _id={_id} />
           </ul>
         </div>
       </article>
