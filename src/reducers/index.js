@@ -1,3 +1,6 @@
 // src/reducers/index.js
+import recipes from './recipes'
 
-module.exports = {}
+module.exports = {
+  recipes
+}
