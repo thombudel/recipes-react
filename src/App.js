@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import RecipesContainer from './recipes/RecipesContainer'
 
-const recipes = [
+export const recipes = [
   {
     _id: 'abcd123',
     title: 'Spanish Omelette',
@@ -49,7 +49,7 @@ class App extends PureComponent {
     super()
 
     this.state = {
-      recipes: recipes
+      recipes,
     }
   }
 

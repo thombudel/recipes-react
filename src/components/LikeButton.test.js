@@ -12,8 +12,8 @@ describe('<LikeButton />', () => {
   const toggleLike = chai.spy()
   const button = shallow(<LikeButton liked={false} onChange={toggleLike} />)
 
-  it('is wrapped in a div with class "like"', () => {
-    expect(button).to.have.tagName('div')
+  it('is wrapped in a paragraph with class "like"', () => {
+    expect(button).to.have.tagName('p')
     expect(button).to.have.className('like')
   })
 

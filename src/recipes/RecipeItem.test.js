@@ -33,8 +33,10 @@ const recipe3 = {
   pescatarian: true,
 }
 
+const updateRecipeSpy = chai.spy()
+
 describe('<RecipeItem />', () => {
-  const container = shallow(<RecipeItem { ...recipe } />)
+  const container = shallow(<RecipeItem { ...recipe } updateRecipe={updateRecipeSpy} />)
 
   it('is wrapped in a article tag with class name "recipe"', () => {
     expect(container).to.have.tagName('article')
@@ -44,24 +46,4 @@ describe('<RecipeItem />', () => {
   it('contains a the title', () => {
     expect(container.find('h1')).to.have.text(recipe.title)
   })
-
-  it('shows a 🥕 when it is vegetarian', () => {
-    expect(container.find('ul > li')).to.contain(<img src={Vegetarian} />)
-  })
 })
-
-// describe('<RecipeItem />', () => {
-//   const container = shallow(<RecipeItem { ...recipe2 } />)
-//
-//   it('shows a 🌾 when it is vegan', () => {
-//     expect(container.find('ul > li')).to.have.text('🌾')
-//   })
-// })
-//
-// describe('<RecipeItem />', () => {
-//   const container = shallow(<RecipeItem { ...recipe3 } />)
-//
-//   it('shows a 🐟 when it is pesky', () => {
-//     expect(container.find('ul > li')).to.have.text('🐟')
-//   })
-// })

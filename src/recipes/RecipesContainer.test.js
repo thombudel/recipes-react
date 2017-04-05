@@ -9,8 +9,10 @@ import RecipeItem from './RecipeItem'
 
 chai.use(chaiEnzyme)
 
+const updateRecipeSpy = chai.spy()
+
 describe('<RecipesContainer />', () => {
-  const container = shallow(<RecipesContainer recipes={recipes} />)
+  const container = shallow(<RecipesContainer recipes={recipes} updateRecipe={updateRecipeSpy} />)
 
   it('is wrapped in a div with class name "recipes"', () => {
     expect(container).to.have.className('wrapper')
