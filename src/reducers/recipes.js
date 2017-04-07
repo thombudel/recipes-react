@@ -1,10 +1,11 @@
 // src/reducers/recipes.js
-import { SEED_RECIPES } from '../actions/recipes/seed'
+import { CREATE_RECIPE } from '../actions/recipes/create'
 import { TOGGLE_LIKE } from '../actions/recipes/toggleLike'
+import { FETCHED_RECIPES } from '../actions/recipes/fetch'
 
 export default (state = [], { type, payload } = {}) => {
   switch(type) {
-    case SEED_RECIPES :
+    case FETCHED_RECIPES :
       return [].concat(payload)
 
     case TOGGLE_LIKE :
@@ -14,6 +15,9 @@ export default (state = [], { type, payload } = {}) => {
         }
         return recipe
       })
+
+    case CREATE_RECIPE :
+      return [Object.assign({}, payload)].concat(state)
 
     default :
       return state
